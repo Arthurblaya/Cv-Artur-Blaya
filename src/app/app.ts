@@ -115,6 +115,17 @@ export class AppComponent {
     {
       title: 'Infrastructure',
       items: ['Distributed systems troubleshooting', 'TCP/IP', 'DNS', 'HTTP', 'CI/CD concepts', 'Bash', 'Python basics']
+    },
+    {
+      title: 'Engineering Workflow',
+      items: [
+        'Feature-driven development',
+        'LLM-assisted engineering',
+        'OpenAI Codex',
+        'Claude Code',
+        'OpenCode',
+        'Custom skills and workflows'
+      ]
     }
   ];
 
