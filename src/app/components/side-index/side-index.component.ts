@@ -17,12 +17,18 @@ export class SideIndexComponent {
   @Input({ required: true }) public links: SectionLink[] = [];
   @Input({ required: true }) public isOpen = true;
   @Input({ required: true }) public activeSectionId = 'top';
+  @Input({ required: true }) public theme: 'light' | 'dark' = 'light';
   @Input() public closeOnNavigate = false;
 
   @Output() public readonly toggle = new EventEmitter<void>();
+  @Output() public readonly themeToggle = new EventEmitter<void>();
 
   protected onToggle(): void {
     this.toggle.emit();
+  }
+
+  protected onThemeToggle(): void {
+    this.themeToggle.emit();
   }
 
   protected onNavigate(): void {

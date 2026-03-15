@@ -29,9 +29,12 @@ export type SectionLink = {
   styleUrl: './app.css'
 })
 export class AppComponent implements AfterViewInit {
+  private readonly storageThemeKey = 'arturblaya-theme';
+
   protected isIndexOpen = true;
   protected activeSectionId = 'top';
   protected isMobileLayout = false;
+  protected theme: 'light' | 'dark' = 'light';
 
   protected readonly sectionLinks: SectionLink[] = [
     { id: 'top', label: 'Artur Blaya' },
@@ -163,7 +166,13 @@ export class AppComponent implements AfterViewInit {
     this.isIndexOpen = !this.isIndexOpen;
   }
 
+  protected toggleTheme(): void {
+    this.theme = this.theme === 'dark' ? 'light' : 'dark';
+    this.applyTheme();
+  }
+
   public ngAfterViewInit(): void {
+    this.loadThemePreference();
     this.syncResponsiveIndexState();
     this.updateActiveSection();
   }
@@ -204,5 +213,26 @@ export class AppComponent implements AfterViewInit {
       this.isMobileLayout = nextIsMobileLayout;
       this.isIndexOpen = !nextIsMobileLayout;
     }
+  }
+
+  private loadThemePreference(): void {
+    const storedTheme = window.localStorage.getItem(this.storageThemeKey);
+    const preferredTheme =
+      storedTheme === 'light' || storedTheme === 'dark'
+        ? storedTheme
+        : window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+
+    this.theme = preferredTheme;
+    this.applyTheme();
+  }
+
+  private applyTheme(): void {
+    document.documentElement.setAttribute('data-theme', this.theme);
+    window.localStorage.setItem(this.storageThemeKey, this.theme);
+
+    const themeColor = this.theme === 'dark' ? '#0d1117' : '#f5f5f7';
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', themeColor);
   }
 }

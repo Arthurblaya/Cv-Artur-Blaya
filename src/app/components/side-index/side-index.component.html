@@ -8,6 +8,11 @@
     <span class="sr-only">{{ isOpen ? 'Close index' : 'Open index' }}</span>
   </button>
 
+  <button class="theme-toggle" type="button" (click)="onThemeToggle()">
+    <span class="theme-icon" aria-hidden="true">{{ theme === 'dark' ? '☀' : '☾' }}</span>
+    <span class="sr-only">{{ theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme' }}</span>
+  </button>
+
   @if (isOpen) {
     <div class="side-index-overlay" (click)="onToggle()"></div>
     <aside class="side-index panel">
