@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arturblaya-web
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      - public_proxy
+
+networks:
+  public_proxy:
+    external: true
+    name: artur-blaya-public-network

@@ -1,0 +1,140 @@
+<main class="page-shell">
+  <section class="hero panel">
+    <div class="hero-copy">
+      <p class="eyebrow">Backend Software Engineer</p>
+      <h1>Artur Blaya</h1>
+      <p class="lede">
+        I design distributed backend systems with a practical focus on cloud-native delivery,
+        resilient communication patterns and maintainable architecture.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="mailto:arturblaya@gmail.com">Contact me</a>
+        <a class="button button-secondary" href="https://github.com/Arthurblaya/Arthurblaya" target="_blank" rel="noreferrer">
+          View GitHub
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <p class="hero-card-label">Based in</p>
+      <p class="hero-card-value">Barcelona, Spain</p>
+      <div class="hero-card-grid">
+        @for (link of contactLinks; track link.label) {
+          <a class="contact-item" [href]="link.href" [attr.target]="link.label === 'GitHub' ? '_blank' : null" rel="noreferrer">
+            <span>{{ link.label }}</span>
+            <strong>{{ link.value }}</strong>
+          </a>
+        }
+      </div>
+    </aside>
+  </section>
+
+  <section class="about panel split">
+    <div>
+      <p class="section-kicker">Profile</p>
+      <h2>Engineering for real systems, not portfolio fiction.</h2>
+    </div>
+    <div class="section-copy">
+      <p>
+        My background is centered on backend development for production systems that need to be observable,
+        scalable and understandable by the people operating them.
+      </p>
+      <p>
+        I have worked across .NET and TypeScript ecosystems, with event-driven services, microservice-heavy
+        environments and Linux-first operations. My strongest interests sit where software design and
+        infrastructure meet: distributed systems, automation and reliability.
+      </p>
+    </div>
+  </section>
+
+  <section class="experience">
+    <div class="section-heading">
+      <p class="section-kicker">Experience</p>
+      <h2>Recent work</h2>
+    </div>
+
+    <div class="timeline">
+      @for (job of experience; track job.company + job.period) {
+        <article class="timeline-item panel">
+          <div class="timeline-topline">
+            <div>
+              <h3>{{ job.role }}</h3>
+              <p class="company">{{ job.company }}</p>
+            </div>
+            <div class="meta">
+              <span>{{ job.period }}</span>
+              <span>{{ job.location }}</span>
+            </div>
+          </div>
+
+          <p class="summary">{{ job.summary }}</p>
+
+          <ul class="highlights">
+            @for (highlight of job.highlights; track highlight) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="panel education">
+    <div class="section-heading">
+      <p class="section-kicker">Education</p>
+      <h2>Academic background</h2>
+    </div>
+    <div class="education-card">
+      <div>
+        <h3>BSc in ICT Systems Engineering</h3>
+        <p>Polytechnic University of Catalonia</p>
+      </div>
+      <div class="meta">
+        <span>2019 - 2023</span>
+        <span>Barcelona, Spain</span>
+      </div>
+    </div>
+    <p class="summary">
+      Bachelor's thesis: Automation of Local Business Website Creation, awarded with a 10/10 grade.
+    </p>
+  </section>
+
+  <section class="skills panel">
+    <div class="section-heading">
+      <p class="section-kicker">Skills</p>
+      <h2>Core stack</h2>
+    </div>
+
+    <div class="skills-grid">
+      @for (group of skillGroups; track group.title) {
+        <article class="skill-card">
+          <h3>{{ group.title }}</h3>
+          <div class="tag-list">
+            @for (item of group.items; track item) {
+              <span>{{ item }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="panel footer-panel">
+    <div>
+      <p class="section-kicker">Interests</p>
+      <h2>Outside work</h2>
+      <div class="tag-list">
+        @for (interest of interests; track interest) {
+          <span>{{ interest }}</span>
+        }
+      </div>
+    </div>
+    <div class="closing-copy">
+      <p>
+        English, Spanish and Catalan speaker. Open to backend, platform and architecture-focused roles.
+      </p>
+      <a class="button button-primary" href="mailto:arturblaya@gmail.com">Start a conversation</a>
+    </div>
+  </section>
+</main>
