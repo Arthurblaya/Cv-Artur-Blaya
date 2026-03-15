@@ -117,7 +117,7 @@ export class AppComponent {
       items: ['Distributed systems troubleshooting', 'TCP/IP', 'DNS', 'HTTP', 'CI/CD concepts', 'Bash', 'Python basics']
     },
     {
-      title: 'Engineering Workflow',
+      title: 'AI and Developer Tooling',
       items: [
         'Feature-driven development',
         'LLM-assisted engineering',
