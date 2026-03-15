@@ -1,5 +1,6 @@
-<main class="page-shell">
-  <section class="hero panel">
+<div class="page-layout" [class.with-index]="isIndexOpen">
+  <main class="page-shell" id="top">
+    <section class="hero panel">
     <div class="hero-copy">
       <p class="eyebrow">Systems Engineer</p>
       <h1>Artur Blaya</h1>
@@ -28,9 +29,9 @@
         }
       </div>
     </aside>
-  </section>
+    </section>
 
-  <section class="about panel split">
+    <section class="about panel split" id="profile">
     <div>
       <p class="section-kicker">Profile</p>
       <h2>Systems engineer focused on backend and distributed platforms.</h2>
@@ -46,9 +47,9 @@
         infrastructure meet: distributed systems, automation and reliability.
       </p>
     </div>
-  </section>
+    </section>
 
-  <section class="experience">
+    <section class="experience" id="experience">
     <div class="section-heading">
       <p class="section-kicker">Experience</p>
       <h2>Recent work</h2>
@@ -78,9 +79,9 @@
         </article>
       }
     </div>
-  </section>
+    </section>
 
-  <section class="panel education">
+    <section class="panel education" id="education">
     <div class="section-heading">
       <p class="section-kicker">Education</p>
       <h2>Academic background</h2>
@@ -98,9 +99,9 @@
     <p class="summary">
       Bachelor's thesis: Automation of Local Business Website Creation, awarded with a 10/10 grade.
     </p>
-  </section>
+    </section>
 
-  <section class="skills panel">
+    <section class="skills panel" id="skills">
     <div class="section-heading">
       <p class="section-kicker">Skills</p>
       <h2>Core stack</h2>
@@ -118,9 +119,9 @@
         </article>
       }
     </div>
-  </section>
+    </section>
 
-  <section class="panel footer-panel">
+    <section class="panel footer-panel" id="interests">
     <div>
       <p class="section-kicker">Interests</p>
       <h2>Outside work</h2>
@@ -136,5 +137,16 @@
       </p>
       <a class="button button-primary" href="mailto:arturblaya@gmail.com">Start a conversation</a>
     </div>
-  </section>
-</main>
+    </section>
+  </main>
+
+  <app-side-index
+    class="page-index"
+    [class.is-open-host]="isIndexOpen"
+    [links]="sectionLinks"
+    [isOpen]="isIndexOpen"
+    [activeSectionId]="activeSectionId"
+    [closeOnNavigate]="isMobileLayout"
+    (toggle)="toggleIndex()"
+  />
+</div>

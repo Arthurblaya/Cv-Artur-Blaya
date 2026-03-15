@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { SideIndexComponent } from './components/side-index/side-index.component';
 
 type Experience = {
   company: string;
@@ -15,14 +16,32 @@ type SkillGroup = {
   items: string[];
 };
 
+export type SectionLink = {
+  id: string;
+  label: string;
+};
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SideIndexComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  protected isIndexOpen = true;
+  protected activeSectionId = 'top';
+  protected isMobileLayout = false;
+
+  protected readonly sectionLinks: SectionLink[] = [
+    { id: 'top', label: 'Artur Blaya' },
+    { id: 'profile', label: 'Profile' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'interests', label: 'Interests' }
+  ];
+
   protected readonly contactLinks = [
     { label: 'Email', href: 'mailto:arturblaya@gmail.com', value: 'arturblaya@gmail.com' },
     { label: 'GitHub', href: 'https://github.com/Arthurblaya/Arthurblaya', value: 'Arthurblaya' },
@@ -139,4 +158,51 @@ export class AppComponent {
     'Travelling',
     'Economics'
   ];
+
+  protected toggleIndex(): void {
+    this.isIndexOpen = !this.isIndexOpen;
+  }
+
+  public ngAfterViewInit(): void {
+    this.syncResponsiveIndexState();
+    this.updateActiveSection();
+  }
+
+  @HostListener('window:scroll')
+  protected onWindowScroll(): void {
+    this.updateActiveSection();
+  }
+
+  @HostListener('window:resize')
+  protected onWindowResize(): void {
+    this.syncResponsiveIndexState();
+    this.updateActiveSection();
+  }
+
+  private updateActiveSection(): void {
+    const sections = this.sectionLinks
+      .map((link) => document.getElementById(link.id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    let currentSection: HTMLElement | undefined;
+
+    for (let index = sections.length - 1; index >= 0; index -= 1) {
+      const section = sections[index];
+      if (section.getBoundingClientRect().top <= 160) {
+        currentSection = section;
+        break;
+      }
+    }
+
+    this.activeSectionId = currentSection?.id ?? 'top';
+  }
+
+  private syncResponsiveIndexState(): void {
+    const nextIsMobileLayout = window.innerWidth <= 900;
+
+    if (nextIsMobileLayout !== this.isMobileLayout) {
+      this.isMobileLayout = nextIsMobileLayout;
+      this.isIndexOpen = !nextIsMobileLayout;
+    }
+  }
 }

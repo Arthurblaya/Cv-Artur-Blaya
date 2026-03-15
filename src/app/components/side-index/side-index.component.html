@@ -1,0 +1,29 @@
+<div class="side-index-shell" [class.is-open]="isOpen">
+  <button class="index-toggle" type="button" (click)="onToggle()">
+    <span class="hamburger" [class.is-open]="isOpen" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <span class="sr-only">{{ isOpen ? 'Close index' : 'Open index' }}</span>
+  </button>
+
+  @if (isOpen) {
+    <div class="side-index-overlay" (click)="onToggle()"></div>
+    <aside class="side-index panel">
+      <p class="side-index-label">Index</p>
+      <nav class="side-index-nav" aria-label="Page sections">
+        @for (link of links; track link.id) {
+          <a
+            [href]="'#' + link.id"
+            [class.is-active]="activeSectionId === link.id"
+            [attr.aria-current]="activeSectionId === link.id ? 'true' : null"
+            (click)="onNavigate()"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </nav>
+    </aside>
+  }
+</div>
