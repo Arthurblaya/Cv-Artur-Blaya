@@ -1,14 +1,14 @@
 :root {
-  color-scheme: dark;
-  --bg: #151110;
-  --paper: rgba(29, 22, 21, 0.84);
-  --paper-strong: #241c1a;
-  --text: #f6efe8;
-  --muted: #c1b1a5;
-  --line: rgba(246, 239, 232, 0.1);
-  --accent: #d9a87c;
-  --accent-soft: rgba(217, 168, 124, 0.12);
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  color-scheme: light;
+  --bg: #f5f5f7;
+  --paper: rgba(255, 255, 255, 0.9);
+  --paper-strong: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --line: rgba(29, 29, 31, 0.08);
+  --accent: #4f7db8;
+  --accent-soft: rgba(79, 125, 184, 0.1);
+  --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
 }
 
 * {
@@ -23,11 +23,19 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at top left, rgba(217, 168, 124, 0.14), transparent 26%),
-    radial-gradient(circle at right, rgba(111, 71, 56, 0.18), transparent 24%),
-    linear-gradient(180deg, #1a1413 0%, #100d0c 100%);
+    radial-gradient(circle at top left, rgba(79, 125, 184, 0.14), transparent 24%),
+    radial-gradient(circle at 85% 18%, rgba(166, 183, 214, 0.18), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(255, 214, 174, 0.16), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f7f8fb 48%, #f1f3f8 100%);
   color: var(--text);
-  font-family: "Instrument Sans", "Segoe UI", sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Text",
+    "SF Pro Display",
+    "Helvetica Neue",
+    "Segoe UI",
+    sans-serif;
 }
 
 a {
