@@ -34,7 +34,7 @@
   width: 16rem;
   height: 16rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(181, 93, 61, 0.24), transparent 68%);
+  background: radial-gradient(circle, rgba(170, 146, 216, 0.22), transparent 68%);
   pointer-events: none;
 }
 
@@ -113,12 +113,12 @@ h3 {
 
 .button-primary {
   background: var(--text);
-  color: #f8f2e9;
+  color: #0c1218;
 }
 
 .button-secondary {
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .hero-card {
@@ -129,7 +129,7 @@ h3 {
   padding: 1.5rem;
   border-radius: 24px;
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 250, 242, 0.92), rgba(250, 242, 232, 0.7));
+  background: linear-gradient(180deg, rgba(25, 35, 47, 0.96), rgba(18, 26, 35, 0.84));
 }
 
 .hero-card-value {
@@ -256,7 +256,7 @@ h3 {
 .skill-card {
   padding: 1.25rem;
   border-radius: 22px;
-  background: rgba(255, 251, 245, 0.92);
+  background: rgba(23, 33, 44, 0.92);
   border: 1px solid var(--line);
 }
 
@@ -273,7 +273,7 @@ h3 {
 .tag-list span {
   padding: 0.55rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(181, 93, 61, 0.16);
+  border: 1px solid rgba(170, 146, 216, 0.2);
   background: var(--accent-soft);
   font-size: 0.95rem;
 }
