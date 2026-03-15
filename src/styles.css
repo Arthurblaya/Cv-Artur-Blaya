@@ -1,14 +1,14 @@
 :root {
   color-scheme: dark;
-  --bg: #0e141b;
-  --paper: rgba(18, 26, 35, 0.82);
-  --paper-strong: #16202b;
-  --text: #ecf1f6;
-  --muted: #9ca8b5;
-  --line: rgba(236, 241, 246, 0.1);
-  --accent: #aa92d8;
-  --accent-soft: rgba(170, 146, 216, 0.12);
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  --bg: #151110;
+  --paper: rgba(29, 22, 21, 0.84);
+  --paper-strong: #241c1a;
+  --text: #f6efe8;
+  --muted: #c1b1a5;
+  --line: rgba(246, 239, 232, 0.1);
+  --accent: #d9a87c;
+  --accent-soft: rgba(217, 168, 124, 0.12);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
 }
 
 * {
@@ -23,9 +23,9 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at top left, rgba(170, 146, 216, 0.16), transparent 26%),
-    radial-gradient(circle at right, rgba(102, 90, 150, 0.14), transparent 24%),
-    linear-gradient(180deg, #0f1822 0%, #0a1016 100%);
+    radial-gradient(circle at top left, rgba(217, 168, 124, 0.14), transparent 26%),
+    radial-gradient(circle at right, rgba(111, 71, 56, 0.18), transparent 24%),
+    linear-gradient(180deg, #1a1413 0%, #100d0c 100%);
   color: var(--text);
   font-family: "Instrument Sans", "Segoe UI", sans-serif;
 }
