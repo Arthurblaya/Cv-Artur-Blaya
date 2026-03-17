@@ -2,6 +2,8 @@
   --side-index-button-size: 3.25rem;
   --side-index-gap: 0.75rem;
   --side-index-offset-top: 0.75rem;
+  --side-index-transition-duration: 220ms;
+  --side-index-transition-timing: cubic-bezier(0.22, 1, 0.36, 1);
   display: block;
   position: fixed;
   top: 1.25rem;
@@ -112,10 +114,36 @@
   right: 0;
   width: 15rem;
   padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-0.35rem) scale(0.98);
+  transform-origin: top right;
+  transition:
+    opacity var(--side-index-transition-duration) ease,
+    transform var(--side-index-transition-duration) var(--side-index-transition-timing),
+    visibility 0s linear var(--side-index-transition-duration);
 }
 
 .side-index-overlay {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--side-index-transition-duration) ease,
+    visibility 0s linear var(--side-index-transition-duration);
+}
+
+.side-index.is-open,
+.side-index-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.side-index.is-open {
+  transform: translateY(0) scale(1);
 }
 
 .side-index-label {
@@ -194,5 +222,15 @@
     z-index: 2;
     width: min(18rem, calc(100vw - 2rem));
     overflow: auto;
+    transform: translateY(-0.5rem) scale(0.98);
+    transform-origin: top right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger span,
+  .side-index,
+  .side-index-overlay {
+    transition: none;
   }
 }

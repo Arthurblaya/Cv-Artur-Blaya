@@ -15,22 +15,20 @@
     </button>
   </div>
 
-  @if (isOpen) {
-    <div class="side-index-overlay" (click)="onToggle()"></div>
-    <aside class="side-index panel">
-      <p class="side-index-label">Index</p>
-      <nav class="side-index-nav" aria-label="Page sections">
-        @for (link of links; track link.id) {
-          <a
-            [href]="'#' + link.id"
-            [class.is-active]="activeSectionId === link.id"
-            [attr.aria-current]="activeSectionId === link.id ? 'true' : null"
-            (click)="onNavigate()"
-          >
-            {{ link.label }}
-          </a>
-        }
-      </nav>
-    </aside>
-  }
+  <div class="side-index-overlay" [class.is-open]="isOpen" (click)="onToggle()"></div>
+  <aside class="side-index panel" [class.is-open]="isOpen" [attr.aria-hidden]="!isOpen">
+    <p class="side-index-label">Index</p>
+    <nav class="side-index-nav" aria-label="Page sections">
+      @for (link of links; track link.id) {
+        <a
+          [href]="'#' + link.id"
+          [class.is-active]="activeSectionId === link.id"
+          [attr.aria-current]="activeSectionId === link.id ? 'true' : null"
+          (click)="onNavigate()"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+  </aside>
 </div>
