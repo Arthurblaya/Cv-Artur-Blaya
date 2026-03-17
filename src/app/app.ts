@@ -31,7 +31,7 @@ export type SectionLink = {
 export class AppComponent implements AfterViewInit {
   private readonly storageThemeKey = 'arturblaya-theme';
 
-  protected isIndexOpen = true;
+  protected isIndexOpen = false;
   protected activeSectionId = 'top';
   protected isMobileLayout = false;
   protected theme: 'light' | 'dark' = 'light';
@@ -211,7 +211,7 @@ export class AppComponent implements AfterViewInit {
 
     if (nextIsMobileLayout !== this.isMobileLayout) {
       this.isMobileLayout = nextIsMobileLayout;
-      this.isIndexOpen = !nextIsMobileLayout;
+      this.isIndexOpen = false;
     }
   }
 
