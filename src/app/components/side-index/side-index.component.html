@@ -1,17 +1,19 @@
 <div class="side-index-shell" [class.is-open]="isOpen">
-  <button class="index-toggle" type="button" (click)="onToggle()">
-    <span class="hamburger" [class.is-open]="isOpen" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
-    <span class="sr-only">{{ isOpen ? 'Close index' : 'Open index' }}</span>
-  </button>
+  <div class="side-index-controls">
+    <button class="theme-toggle" type="button" (click)="onThemeToggle()">
+      <span class="theme-icon" aria-hidden="true">{{ theme === 'dark' ? '☀' : '☾' }}</span>
+      <span class="sr-only">{{ theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme' }}</span>
+    </button>
 
-  <button class="theme-toggle" type="button" (click)="onThemeToggle()">
-    <span class="theme-icon" aria-hidden="true">{{ theme === 'dark' ? '☀' : '☾' }}</span>
-    <span class="sr-only">{{ theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme' }}</span>
-  </button>
+    <button class="index-toggle" type="button" (click)="onToggle()">
+      <span class="hamburger" [class.is-open]="isOpen" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="sr-only">{{ isOpen ? 'Close index' : 'Open index' }}</span>
+    </button>
+  </div>
 
   @if (isOpen) {
     <div class="side-index-overlay" (click)="onToggle()"></div>
