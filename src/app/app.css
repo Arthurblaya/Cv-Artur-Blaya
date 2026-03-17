@@ -6,15 +6,7 @@
   width: min(1360px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 1.25rem 0 3rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1.25rem;
-  align-items: start;
-  transition: grid-template-columns 180ms ease;
-}
-
-.page-layout.with-index {
-  grid-template-columns: minmax(0, 1fr) 15rem;
+  display: block;
 }
 
 .page-shell {
@@ -349,10 +341,8 @@ h3 {
 }
 
 @media (max-width: 900px) {
-  .page-layout,
-  .page-layout.with-index {
+  .page-layout {
     width: min(100% - 1rem, 100%);
-    grid-template-columns: 1fr;
     padding-top: 0.75rem;
   }
 
