@@ -26,7 +26,9 @@
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--paper-strong) 92%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--paper-strong) 96%, transparent), color-mix(in srgb, var(--paper) 88%, transparent)),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 12%, transparent), transparent 44%);
   color: var(--text);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
@@ -44,7 +46,9 @@
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--paper-strong) 92%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--paper-strong) 96%, transparent), color-mix(in srgb, var(--paper) 88%, transparent)),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 12%, transparent), transparent 44%);
   color: var(--text);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
@@ -98,7 +102,10 @@
 .panel {
   border: 1px solid var(--line);
   border-radius: 28px;
-  background: var(--paper);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--paper-strong) 95%, transparent), color-mix(in srgb, var(--paper) 88%, transparent)),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 12%, transparent), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(255, 196, 128, 0.08), transparent 24%);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
 }
@@ -134,7 +141,9 @@
   border-radius: 14px;
   color: var(--muted);
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 8%, transparent), transparent 40%);
   border: 1px solid transparent;
   transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
